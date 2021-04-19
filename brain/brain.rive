@@ -1,5 +1,5 @@
 ! version = 2.0
-
+! sub hello = hey, yo, hi
 + hello
 - Hello, what is your name?
 
