@@ -1,18 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
 
 * {
-  font-family: "Inter", Arial;
+  font-family:'Teko', sans-serif, 'Times New Roman', Times, serif, Arial;
   font-size: 12pt;
   margin: 0;
   box-sizing: border-box;
 }
 
+
+
 body {
-  background: #f2f2f2;
+  background: url(https://lh3.googleusercontent.com/proxy/yBmiWylDdc_jJMFtRK9X1tBCz1Y0yIovUykiia9p_3PCl9UkHUaDGjMzpNI7mk6aehRUay0l_tXIZYIOXWx_n8B6PvZ9NHJd1CMsFSbextffqFRad7hpssXvzLK8_YSMY82a);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
+
+
 .title {
-  height: 5vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +27,9 @@ body {
 
 .title h1 {
   letter-spacing: 0.75px;
-  color: blueviolet;
+  color: rgb(255, 255, 255);
+  font-size: 35pt;
+  text-align: center;
 }
 
 .wrapper {
@@ -28,18 +37,24 @@ body {
 }
 
 .chat {
-  background: white;
-  box-shadow: 10px 10px 0px blueviolet;
+  background: rgba(255, 255, 255, 0.555);
+  box-shadow: 10px 10px 0px rgba(139, 1, 1, 0.562);
   overflow: scroll;
-  height: 100%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   padding: 20px 20px 0px 20px;
   border-radius: 10px;
+  width: 60vh;
 }
 
 .messages {
   flex: 1 0 auto;
+}
+
+.messages img {
+width: 100%;
+
 }
 
 .messages div {
@@ -63,8 +78,8 @@ body {
 .messages .bot {
   text-align: left;
   margin-right: auto;
-  background: black;
-  color: white;
+  background:rgb(189, 0, 0);
+  color: whitesmoke;
 }
 
 .messages .self {
@@ -82,7 +97,7 @@ body {
   position: sticky;
   bottom: -1px;
   padding: 10px 0px 20px;
-  background: white;
+  /*background: rgb(255, 255, 255);*/
 }
 
 .actions input {
@@ -92,7 +107,7 @@ body {
   outline: 0;
   border-top: 0px;
   border-right: 0px;
-  border-bottom: 2px solid black;
+ /* border-bottom: 2px solid black; */
   border-left: 0px;
 }
 

@@ -1,45 +1,125 @@
 ! version = 2.0
-! sub hello = hey, yo, hi
-+ hello
-- Hello, what is your name?
 
-+ _
-% hello what is your name
-- Nice to meet you <formal>!
+// bot variables
 
-+ my name is *
-- Nice to meet you <star>
-- Nice meeting you <star>
-- I thought that you are Shrek!
-- Hey <formal>
-- ...
-- That's funny!
-- Hello beauty!
+// substitutions
 
-+ thank you
-- You are welcome
-- Welcome
-- No problem
-- No worries!
 
-+ hello there
-- General Kenobi!
+// hello part
 
-+ (search in google|google) *
-- Maybe that works or not: <a href="http://google.com/search?q=<star>">Click Here</a>
+> begin
 
+    + request
+    * <get met> == undefined => <set met=true>{topic=new_user}{ok}
+    - {ok}
+
+< begin
+
+> topic new_user
+
+    + hi|hello|hey|yo|*
+    - Hello, im the megaphone, whats your name?\s
+    ^ What is your name?{topic=asked_name}
+
+< topic
+
+
+> topic=asked_name
+
+    + my name is *
+    - <set name=<formal>> Nice to meet you, <get name>! GUESS WHAT! {topic=what}
+
+    + #
+    - Your name is a number? Give me your first name!
+
+    + *
+    - I only want your first name.
+
+    + _
+    - <set name=<formal>>Nice to meet you, <get name>! GUESS WHAT! {topic=what}
+
+< topic
+
+
+< topic what
+
+    + what
+    - You wont believe where i am!!
+
+    + (idk|i dont know|where|where are you|where have you been)
+    - ive been everywhere! Have you ever been to any protests before? Yes, no?
+
+    + (yes|no)
+    - 🤠 I’ve been to several protects, select the one you want to hear about: \n
+    ^  1. Blacklives Matter \n
+    ^  2. Guerrilla Girls \n
+    ^  3. Extinction Rebellion \n
+    ^  4. Kill the Bill
+
+    + (1|blacklives matter)
+    - ok
+
+    + (2|guerrilla girls)
+    - 🐵 Grrrrr!\n
+    ^ What do you thnk, who are they? {topic=gorilla}
+
+    + (3|extinction rebellion)
+    - ok 3
+
+    + (4|kill the bill)
+    - ok 4 {topic=killbill}
+
+> topic gorilla
+
+    % *
+    - So, Guerrilla Girls is an anonymous group of feminist, \n 
+    ^ female artists devoted to fighting sexism and racism within the art world. \n
+    ^ The group formed in New York City in 1985 with the mission of bringing gender \n
+    ^ and racial inequality into focus within the greater arts community.
+    ^ The group employs culture jamming in the form of posters, books, billboards, \n 
+    ^ and public appearances to expose discrimination and corruption.
+    ^ <img scr='../images/gorilla_poster.jpg'>
+
+> topic 
+
+
+
+< topic
+
+
+> topic killbill
+
+    + 4
+    - I've just come back from a protest called Kill the Bill, have you heard of it?
+    + (yes|no)
+    - hey 
+
+< topic
+
+
++ * quiz *
+- Would you like to take part in a quiz? Yes, no? {topic=quiz}
+
+> topic quiz
+
+    + yes
+    - Nice! let's get into the first question
+    - Guess how many female artist’s  were included among 163 artists in the Museum of Modern Art in 1985? \n  
+    ^ Continue A: 100.   B: 63.   C: 13 
+
+    + c
+    - Bingo!
+
+    + a|b
+    - Nope 
+    - Guess how many black artist’s  were included among 163 artists in the Museum of Modern Art in 1985? \n
+    ^ Continue A: 20.   B: 0.   C: 13
+
+< topic
+
+
+  // All stuff trigger
 + *
-- Sorry did not get what you said
-- I am afraid that I can not understand you
-- Sorry can you please elaborate that for me
-- I don't get it!
-
-+ can you read and edit
-- yes
-
-
-+ im so bad at this lol
-- I know hahaha!
-- No you're not!
-- Level up your character
-- You need more xp to use this tool
+- I'm not sure how to reply to that.
+- Try asking your question a different way.
+- Let's change the subject.
