@@ -18,7 +18,7 @@
 > topic new_user
 
     + hi|hello|hey|yo|*
-    - Hello, im the megaphone, whats your name?\s
+    - Hello! I'm the Megaphone,\n
     ^ What is your name?{topic=asked_name}
 
 < topic
@@ -53,51 +53,69 @@
     - 🤠 I’ve been to several protects, select the one you want to hear about: \n
     ^  1. Blacklives Matter \n
     ^  2. Guerrilla Girls \n
-    ^  3. Extinction Rebellion \n
+    ^  3. Woman riots in Poland 2020 \n
     ^  4. Kill the Bill
 
     + (1|blacklives matter)
     - ok
 
     + (2|guerrilla girls)
-    - 🐵 Grrrrr!\n
-    ^ What do you thnk, who are they? {topic=gorilla}
+    - {topic=gorilla} 🐵 Grrrrr!\n
+    ^ What do you thnk, who are they?
 
-    + (3|extinction rebellion)
+    + (3|woman riots|woman riots in poland 2020)
     - ok 3
 
-    + (4|kill the bill)
-    - ok 4 {topic=killbill}
+    + (4|kill the bill) {topic=killbill}
+
+< topic
+
 
 > topic gorilla
 
-    % *
-    - So, Guerrilla Girls is an anonymous group of feminist, \n 
+    + idk
+    - <img scr='../images/gorilla_poster.jpg'> So, Guerrilla Girls is an anonymous group of feminist, \n 
     ^ female artists devoted to fighting sexism and racism within the art world. \n
     ^ The group formed in New York City in 1985 with the mission of bringing gender \n
     ^ and racial inequality into focus within the greater arts community.
     ^ The group employs culture jamming in the form of posters, books, billboards, \n 
-    ^ and public appearances to expose discrimination and corruption.
-    ^ <img scr='../images/gorilla_poster.jpg'>
+    ^ and public appearances to expose discrimination and corruption. \n
 
 > topic 
-
-
-
-< topic
 
 
 > topic killbill
 
     + 4
-    - I've just come back from a protest called Kill the Bill, have you heard of it?
-    + (yes|no)
-    - hey 
+    - Have you heard of the new bill which is stopping people from their right to protest?
+    
+    + (yes|no|maybe|im not too sure)
+    - Its called 'The Police, Crime, Sentencing and Courts Bill, \n
+    ^ there have been many KILL THE BILL protests as people dissagree with the new law!
+
+    + (why is that|really|tell me more|why)
+    - The new law will allow the police to impose conditions of protests such as \n
+    ^ 1. controlling the duration /n
+    ^ 2. controlling the noise levels /n
+    ^ 3. shutting down protests /n
+    ^ Have you ever been to a protest which is violent or noisy?
+
+    + (yes|no|a lot of them|a few|some)
+    - Well myself and other megaphones wont be able to attend protests for much longer /n
+    ^ WE ARE TOO NOISY!! /n
+    ^ What is your opinion on this? {topic=killbill_opinion}
+
+    > topic killbill_opinion
+    + *
+    - That's a great opinion! {topic=killbill}
+    < topic
+
+    
 
 < topic
 
 
-+ * quiz *
++ [*] quiz [*]
 - Would you like to take part in a quiz? Yes, no? {topic=quiz}
 
 > topic quiz

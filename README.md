@@ -7,6 +7,7 @@ one that asks you (the designer) to empathise, evaluate and develop an ‘identi
 
 This `README` is split into three sections, you can jump to whichever is relevant to you here:
 
+
 1. [Downloading the Project](#downloading-the-project)
 2. Setting up the project with [Visual Studio Code (recommended)](#project-setup-using-visual-studio-code-recommended) or [manually](#manual-project-setup)
 3. [Editing the Chatbot](#editing-the-chatbot)
