@@ -6,114 +6,174 @@
 
 
 // hello part
++ *
+- Hello! I'm the <b>Megaphone</b> 😎\n
+^ <img src='../images/megaphone.jpg'> \n
+^ \n 
+^ What is your name? {topic=asked_name}
 
-> begin
+    > topic asked_name
 
-    + request
-    * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-    - {ok}
+        + my name is *
+        - <set name=<formal>> Nice to meet you, <get name>! GUESS WHAT! {topic=what}
 
-< begin
+        + #
+        - Your name is a number? \n
+        ^ <img src='../images/facepalm.gif'> \n
+        ^ \n
+        ^ Give me your first name!
 
-> topic new_user
+        + *
+        - I only want your first name.
 
-    + hi|hello|hey|yo|*
-    - Hello! I'm the Megaphone,\n
-    ^ What is your name?{topic=asked_name}
-
-< topic
-
-
-> topic=asked_name
-
-    + my name is *
-    - <set name=<formal>> Nice to meet you, <get name>! GUESS WHAT! {topic=what}
-
-    + #
-    - Your name is a number? Give me your first name!
-
-    + *
-    - I only want your first name.
-
-    + _
-    - <set name=<formal>>Nice to meet you, <get name>! GUESS WHAT! {topic=what}
-
-< topic
-
-
-< topic what
-
-    + what
-    - You wont believe where i am!!
-
-    + (idk|i dont know|where|where are you|where have you been)
-    - ive been everywhere! Have you ever been to any protests before? Yes, no?
-
-    + (yes|no)
-    - 🤠 I’ve been to several protects, select the one you want to hear about: \n
-    ^  1. Blacklives Matter \n
-    ^  2. Guerrilla Girls \n
-    ^  3. Woman riots in Poland 2020 \n
-    ^  4. Kill the Bill
-
-    + (1|blacklives matter)
-    - ok
-
-    + (2|guerrilla girls)
-    - {topic=gorilla} 🐵 Grrrrr!\n
-    ^ What do you thnk, who are they?
-
-    + (3|woman riots|woman riots in poland 2020)
-    - ok 3
-
-    + (4|kill the bill) {topic=killbill}
-
-< topic
-
-
-> topic gorilla
-
-    + idk
-    - <img scr='../images/gorilla_poster.jpg'> So, Guerrilla Girls is an anonymous group of feminist, \n 
-    ^ female artists devoted to fighting sexism and racism within the art world. \n
-    ^ The group formed in New York City in 1985 with the mission of bringing gender \n
-    ^ and racial inequality into focus within the greater arts community.
-    ^ The group employs culture jamming in the form of posters, books, billboards, \n 
-    ^ and public appearances to expose discrimination and corruption. \n
-
-> topic 
-
-
-> topic killbill
-
-    + 4
-    - Have you heard of the new bill which is stopping people from their right to protest?
-    
-    + (yes|no|maybe|im not too sure)
-    - Its called 'The Police, Crime, Sentencing and Courts Bill, \n
-    ^ there have been many KILL THE BILL protests as people dissagree with the new law!
-
-    + (why is that|really|tell me more|why)
-    - The new law will allow the police to impose conditions of protests such as \n
-    ^ 1. controlling the duration /n
-    ^ 2. controlling the noise levels /n
-    ^ 3. shutting down protests /n
-    ^ Have you ever been to a protest which is violent or noisy?
-
-    + (yes|no|a lot of them|a few|some)
-    - Well myself and other megaphones wont be able to attend protests for much longer /n
-    ^ WE ARE TOO NOISY!! /n
-    ^ What is your opinion on this? {topic=killbill_opinion}
-
-    > topic killbill_opinion
-    + *
-    - That's a great opinion! {topic=killbill}
+        + _
+        - <set name=<formal>>Nice to meet you, <get name>! GUESS WHAT! {topic=what}
     < topic
 
-    
+// real conversation part
 
-< topic
+    > topic what
 
+        + what
+        - You wont believe where I am!!!
+
+        + *
+        - Haha! I am here and there, I've been everywhere! Have you ever been to any protests before? Yes, no? {topic=protest_choice}
+    < topic
+
+    > topic protest_choice
+        + (yes|no)
+        - 🤠 I’ve been to several protects, select the one you want to hear about: \n
+        ^ <b>1</b>. Blacklives Matter \n
+        ^ <b>2</b>. Guerrilla Girls \n
+        ^ <b>3</b>. Women riots in Poland 2020 \n
+        ^ <b>4</b>. Kill the Bill {topic=protest_list}
+
+        + *
+        - Hmmm... I don't understand {weight=70}
+        - What? {weight=60}
+        - Eeeeeee {weight=60}
+        - Khm khm {weight=60}
+        - So... Have you ever been to any protests before? {weight=80} {topic=annoyed_robot}
+    < topic
+
+    > topic annoyed_robot
+        + (yes|no)
+        - Finally! \n
+        ^ <img src="../images/happy_spongebob.gif"> \n
+        ^ \n
+        ^ So? In which one are you interested in? \n
+        ^ <b>1</b>. Blacklives Matter \n
+        ^ <b>2</b>. Guerrilla Girls \n
+        ^ <b>3</b>. Women riots in Poland 2020 \n
+        ^ <b>4</b>. Kill the Bill {topic=protest_list}
+
+        + *
+        - This is yes or no question! 🙄
+    < topic
+
+        > topic protest_list
+            + (1|blacklives matter)
+            - ok {topic=blacklives}
+
+            + (2|guerrilla girls)
+            - 🐵 Grrrrr!\n
+            ^ What do you thnk, who are they? {topic=gorilla}
+
+            + (3|women riots|women riots in poland 2020)
+            - ok 3 {topic=polish_women}
+
+            + (4|kill the bill)
+            - Have you heard of the new bill which is stopping people from their right to protest?{topic=killbill}
+
+            + *
+            - I think you should pick an option 😋
+        < topic
+
+            // protest 1
+            > topic blacklives
+                + *
+                - #blacklives matter was founded in 2013 in response to the acquittal of Trayvon Martin’s murderer. \n
+                ^ Black Lives Matter Global Network Foundation, Inc. is a global organization in the US, UK, and Canada, whose mission is to <b> eradicate white supremacy and build local power to intervene in violence inflicted on Black communities by the state and vigilantes. </b> \n 
+                ^ BLM are working for a world where Black lives are <b> no longer systematically targeted for demise. </b> \n
+                ^ They strive to affirm the lives of Black queer and trans folks, disabled folks, undocumented folks, folks with records, women, and all Black lives along the gender spectrum. Their network centers those who have been marginalized within Black liberation movements. \n
+                ^ <b> The call for Black lives to matter is a rallying cry for ALL Black lives striving for liberation. </b> \n
+
+            < topic
+
+            // protest 2
+            > topic gorilla
+                + *
+                - In 1985 the Museum of Modern Art (MoMA) in New York put on an exhibition called An International Survey of Painting and Sculpture that claimed to show all the important art that was happening at that time, but it didn't!
+                - Of the 169 artists included only 13 were women and there were no black artists at all! The Guerrilla Girls were understandably not happy about this because lots of women and black artists were making exciting and interesting art. 
+                - So they started making protest posters and pasting them up on the streets of New York around the museum.
+               
+                + * //are you making the space with spacebar or tab? oh yes lol     with the tab it's easier :P okie
+                - So, Guerrilla Girls is an anonymous group of feminist, \n 
+                ^ female artists devoted to fighting sexism and racism within the art world. \n
+                ^ The group formed in New York City in 1985 with the mission of bringing gender \n
+                ^ and racial inequality into focus within the greater arts community.
+                ^ The group employs culture jamming in the form of posters, books, billboards, \n 
+                ^ and public appearances to expose discrimination and corruption. \n
+                ^ <img src='../images/gorilla_poster.jpg'> \n
+                ^ \n
+                ^ I took some more photos! Would you like to see them?
+
+                + (yes|no|sure|idk)
+                - <img src='../images/gorilla_sexy.jpg'> \n
+                ^ \n
+                ^ To remain anonymous, members don gorilla masks and use pseudonyms that refer to deceased female artists. \n
+                ^ According to GG1, identities are concealed because issues matter more than individual identities\n 
+                ^ Mainly, we wanted the focus to be on the issues, not on our personalities or our own work.
+
+               
+            > topic 
+
+            //protest 3
+            > topic polish_women
+                + *
+                - The <b>2020–2021 Women Strike protests in Poland</b> commonly called the <b>Women Strike</b> <i>(Polish: Strajk kobiet)</i>, are anti-government demonstrations and protests in Poland that began on 22 October 2020, in reaction to a ruling of the Constitutional Tribunal, mainly consisting of judges who were appointed by the ruling Law and Justice <i>(Polish: Prawo i Sprawiedliwość, PiS)</i> dominated United Right, which tightened the law on abortion in Poland. The ruling made almost all cases of abortion illegal, including those cases in which the foetus had a severe and permanent disability, or an incurable and life-threatening disease. \n
+                ^ \n
+                ^Beside of that the great artistic stuff has been made over there! I can show you the Official Poster. Would you like to see it?
+
+                + ([*] yes [*]|[*] no [*])
+                - <img src='../images/strajk-kobiet_plakat.jpg'> \n
+                ^ \n
+                ^ This is one of the official posters of the <b>All-Poland Women's Strike</b>. This design was widely used by the protesters and it's well-know by all Polish citizens. I have more designs 😃\n
+                ^ If you would like to see more shout MORE POSTERS!
+
+                + more posters
+                - I knew you like it! \n
+                ^ Before I will show you nex ones - here is a link to
+
+            < topic
+
+            // protest 4
+            > topic killbill
+                + *
+                - Its called 'The Police, Crime, Sentencing and Courts Bill, \n
+                ^ there have been many KILL THE BILL protests as people dissagree with the new law!
+
+                + (why is that|really|tell me more|why)
+                - The new law will allow the police to impose conditions of protests such as \n
+                ^ 1. controlling the duration /n
+                ^ 2. controlling the noise levels /n
+                ^ 3. shutting down protests /n
+                ^ Have you ever been to a protest which is violent or noisy?
+
+                + (yes|no|a lot of them|a few|some)
+                - Well myself and other megaphones wont be able to attend protests for much longer /n
+                ^ WE ARE TOO NOISY!! /n
+                ^ What is your opinion on this? {topic=killbill_opinion}
+            < topic
+
+                > topic killbill_opinion
+                    + *
+                    - That's a great opinion! {topic=killbill}
+                < topic
+
+
+// quiz part
 
 + [*] quiz [*]
 - Would you like to take part in a quiz? Yes, no? {topic=quiz}
@@ -127,17 +187,12 @@
 
     + c
     - Bingo!
+    ^ 
 
     + a|b
     - Nope 
     - Guess how many black artist’s  were included among 163 artists in the Museum of Modern Art in 1985? \n
     ^ Continue A: 20.   B: 0.   C: 13
+    ^ <img src='../images/Galleryblackwomen.jpg'>
 
 < topic
-
-
-  // All stuff trigger
-+ *
-- I'm not sure how to reply to that.
-- Try asking your question a different way.
-- Let's change the subject.

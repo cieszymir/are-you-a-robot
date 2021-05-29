@@ -9,13 +9,90 @@
 
 
 
+@keyframes body_bg {
+/*image 1*/
+  0%   {background:url('./images/blacklives_matter_afp_images.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  1%   {background:url('./images/blacklives_matter_afp_images.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  23%   {background:url('./images/blacklives_matter_afp_images.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+/*image 2*/
+  24%  {background:url('./images/strajk_kobiet_radiozet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  25%  {background:url('./images/strajk_kobiet_radiozet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  49%  {background:url('./images/strajk_kobiet_radiozet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+/*image 3*/
+  50%  {background:url('./images/Guerrilla_Girls_national_museum_of_women_in_arts.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  75%  {background:url('./images/Guerrilla_Girls_national_museum_of_women_in_arts.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+  76%  {background:url('./images/Guerrilla_Girls_national_museum_of_women_in_arts.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+/*image 4*/
+  77%  {background:url('./images/kill_the_bill_the_telegraph.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+
+  98%  {background:url('./images/kill_the_bill_the_telegraph.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+
+  99%  {background:url('./images/kill_the_bill_the_telegraph.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+
+  100% {background:url('./images/blacklives_matter_afp_images.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+}
+
 body {
-  background: rgb(0, 130, 139);
+  animation-name: body_bg;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-
 
 
 .title {
@@ -30,6 +107,8 @@ body {
   color: rgb(255, 255, 255);
   font-size: 35pt;
   text-align: center;
+  text-shadow: 2px 2px 9px rgb(19, 19, 19);
+  
 }
 
 .wrapper {
@@ -38,7 +117,7 @@ body {
 
 .chat {
   background: rgba(255, 255, 255, 0.555);
-  box-shadow: 10px 10px 0px rgba(139, 1, 1, 0.562);
+  box-shadow: 10px 10px 9px rgba(139, 1, 1, 0.562);
   overflow: scroll;
   height: 85%;
   display: flex;
