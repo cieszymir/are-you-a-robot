@@ -74,7 +74,7 @@
 
         > topic protest_list
             + (1|blacklives matter)
-            - ok {topic=blacklives}
+            - Have you heard of Black lives matter? {topic=blacklives}
 
             + (2|guerrilla girls)
             - 🐵 Grrrrr!\n
@@ -94,10 +94,15 @@
             > topic blacklives
                 + *
                 - #blacklives matter was founded in 2013 in response to the acquittal of Trayvon Martin’s murderer. \n
+                ^ \n
                 ^ Black Lives Matter Global Network Foundation, Inc. is a global organization in the US, UK, and Canada, whose mission is to <b> eradicate white supremacy and build local power to intervene in violence inflicted on Black communities by the state and vigilantes. </b> \n 
+                ^ \n
                 ^ BLM are working for a world where Black lives are <b> no longer systematically targeted for demise. </b> \n
+                ^ \n
                 ^ They strive to affirm the lives of Black queer and trans folks, disabled folks, undocumented folks, folks with records, women, and all Black lives along the gender spectrum. Their network centers those who have been marginalized within Black liberation movements. \n
+                ^ \n
                 ^ <b> The call for Black lives to matter is a rallying cry for ALL Black lives striving for liberation. </b> \n
+                ^ <a href="https://blacklivesmatter.com/" target="_blank">link</a>
 
             < topic
 
@@ -117,7 +122,7 @@
                 ^ and public appearances to expose discrimination and corruption. \n
                 ^ <img src='../images/gorilla_poster.jpg'> \n
                 ^ \n
-                ^ I took some more photos! Would you like to see them?
+                ^ I took some more photos! Would you like to see them? {topic}
 
                 + (yes|no|sure|idk)
                 - <img src='../images/gorilla_sexy.jpg'> \n
@@ -144,7 +149,7 @@
 
                 + more posters
                 - I knew you like it! \n
-                ^ Before I will show you nex ones - here is a link to
+                ^ Before I will show you nex ones - here is a link to <a href="https://plakatnastrajk.pl/" target="_blank">official poster website</a> 😎
 
             < topic
 
