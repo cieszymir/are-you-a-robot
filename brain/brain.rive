@@ -14,7 +14,7 @@
 
     > topic asked_name
 
-        + my name is *
+        + my namezzzzz is *
         - <set name=<formal>> Nice to meet you, <get name>! GUESS WHAT! {topic=what}
 
         + #
