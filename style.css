@@ -151,7 +151,7 @@ width: 100%;
 }
 
 .messages div a:hover {
-  color: blueviolet;
+  color: rgb(2, 255, 242);
 }
 
 .messages .bot {
@@ -166,8 +166,8 @@ width: 100%;
   margin-right: 20px;
   margin-left: auto;
   background: white;
-  border: 1px solid blueviolet;
-  color: blueviolet;
+  border: 1px solid rgb(189, 0, 0);
+  color: rgb(189, 0, 0);
 }
 
 .actions {
@@ -191,7 +191,7 @@ width: 100%;
 }
 
 input:focus {
-  border-bottom: 2px solid blueviolet;
+  border-bottom: 2px solid rgb(189, 0, 0);
 }
 
 @media all and (min-width: 720px) {
